@@ -105,25 +105,27 @@ nav a:hover {
 }
 
 .grid-projetos {
-display: grid;
-gap: 16px;
-grid-template-columns: 1fr;
-align-items: start;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+    align-items: start;
 }
 
 .card-projeto {
-    border: 1px solid #eee;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #fff;
-    padding: 12px;
     display: grid;
     gap: 8px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 12px;
+    background: #fff;
+    min-width: 0;
 }
 
 .card-projeto img {
     width: 100%;
     border-radius: 8px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
 }
 
 .card-projeto .categoria {
@@ -231,3 +233,13 @@ nav a:focus {
     outline: 2px solid #111;
     outline-offset: 2px;
 }
+
+@media (min-width: 768px) {
+.grid-projetos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1100px) {
+.grid-projetos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+
