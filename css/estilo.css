@@ -105,9 +105,10 @@ nav a:hover {
 }
 
 .grid-projetos {
-    display: grid;
-    gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+display: grid;
+gap: 16px;
+grid-template-columns: 1fr;
+align-items: start;
 }
 
 .card-projeto {
