@@ -72,3 +72,40 @@ if (btnMenu && nav) {
     nav.classList.toggle("ativo");
   });
 }
+
+// LIGHTBOX
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const linksLightbox = document.querySelectorAll(".abre-lightbox");
+
+if (lightbox && linksLightbox.length > 0) {
+  linksLightbox.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      lightboxImg.src = link.href;
+      lightboxImg.alt = link.querySelector("img").alt;
+      lightbox.classList.add("aberto");
+    });
+  });
+
+  const botaoFechar = document.getElementById("lightbox-fechar");
+
+  function fecharLightbox() {
+    lightbox.classList.remove("aberto");
+    lightboxImg.removeAttribute("src");
+  }
+
+  botaoFechar.addEventListener("click", fecharLightbox);
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      fecharLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      fecharLightbox();
+    }
+  });
+}
